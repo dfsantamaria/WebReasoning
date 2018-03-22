@@ -4,15 +4,21 @@
  * and open the template in the editor.
  */
 package com.webreasoning.exercise.owlapiex;
+import java.io.File;
+import java.io.FileNotFoundException;
+import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.OWLOntology;
+import org.semanticweb.owlapi.model.OWLOntologyCreationException;
+import org.semanticweb.owlapi.model.OWLOntologyManager;
 /**
  *
  * @author Daniele Francesco Santamaria 
  */
 public class main
   {
-   public static void main(String[] args) 
+   public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException
     {
-          
+       OWLOntologyManager manager= OWLManager.createOWLOntologyManager(); //create the manager    
+       OWLOntology ontology= ontology=manager.loadOntologyFromOntologyDocument(new File("ontologie/E1G1.owl"));
     }
   }
