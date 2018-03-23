@@ -6,131 +6,127 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1">
+    <Prefix name="" IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.w3.org/2009/08/skos-reference/skos.rdf</Import>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Soluzione Esercizio 1 del 07/06/2017</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Soluzione Esercizio 1 del 07/06/2017</Literal>
     </Annotation>
     <Declaration>
-        <ObjectProperty IRI="#haRuoloInFilm"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#haBudgetFilm"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Regista"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#RobMarshall"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Attore"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Attività"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#haGenere"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Locazione"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#attivitaSvolta"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#ruoloInFilm"/>
+        <Class IRI="#AttivitaAttore"/>
     </Declaration>
     <Declaration>
         <Class IRI="#AttivitaRegista"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#AttivitaAttore"/>
+        <Class IRI="#Attività"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Paese"/>
+        <Class IRI="#Attore"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#GenereFantasy"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#StatiUnitiAmerica"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Studio"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#haDataProduzioneFilm"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Genere"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#JDPiratesCarribean2003"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#AttivitaAttore"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#haLavoratoPressoStudio"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#haTitoloFilm"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#GenereHorror"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#JohnnyDepp"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#RBPiratesCarribean2003"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#AttivitaRegista"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#RuoloInFilm"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#Persona"/>
+        <Class IRI="#Film"/>
     </Declaration>
     <Declaration>
         <Class IRI="#FilmFantasy"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#haCognome"/>
+        <Class IRI="#Genere"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GenereFantasy"/>
     </Declaration>
     <Declaration>
         <Class IRI="#GenereHorror"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GenereFantasy"/>
+        <Class IRI="#Locazione"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Paese"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Persona"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regista"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RuoloInFilm"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Studio"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#attivitaSvolta"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haGenere"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#haLavoratoPressoStudio"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#haLocazioneStudio"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#WaltDisneyPictures"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#PiratesOfCarribean2013"/>
+        <ObjectProperty IRI="#haRuoloInFilm"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#haStudio"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Film"/>
+        <ObjectProperty IRI="#ruoloInFilm"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Film"/>
+        <DataProperty IRI="#haBudgetFilm"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#GenereFantasy"/>
+        <DataProperty IRI="#haCognome"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#haDataProduzioneFilm"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#haTitoloFilm"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AttivitaAttore"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#AttivitaRegista"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GenereFantasy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GenereHorror"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JDPiratesCarribean2003"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#JohnnyDepp"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PiratesOfCarribean2013"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RBPiratesCarribean2003"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#RobMarshall"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#StatiUnitiAmerica"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#WaltDisneyPictures"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#Attore"/>
@@ -185,10 +181,6 @@
     <SubClassOf>
         <Class IRI="#Attore"/>
         <Class IRI="#Persona"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#FilmFantasy"/>
-        <Class IRI="#Film"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#FilmFantasy"/>
@@ -416,16 +408,17 @@
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Attore</IRI>
-        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Definiamo Attore la classe di tutte le persone cha hanno avuto almeno una volta un ruolo di attore in un film</Literal>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">Definiamo Attore la classe di tutte le persone cha hanno avuto almeno una volta un ruolo di attore in un film</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Regista</IRI>
-        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Definiamo Regista la classe di tutte le persone che hanno avuto almeno una volta un ruolo da regista in un film</Literal>
+        <Literal xml:lang="it" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">Definiamo Regista la classe di tutte le persone che hanno avuto almeno una volta un ruolo da regista in un film</Literal>
     </AnnotationAssertion>
 </Ontology>
 
 
 
-<!-- Generated by the OWL API (version 4.1.4.20160202-2327) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 5.1.4) https://github.com/owlcs/owlapi/ -->
+
 

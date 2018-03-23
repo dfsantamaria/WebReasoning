@@ -15,6 +15,7 @@ import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
+import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 /**
  *
@@ -22,7 +23,7 @@ import org.semanticweb.owlapi.util.SimpleIRIMapper;
  */
 public class main
   {
-   public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException
+   public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
     {
        OWLOntologyManager manager= OWLManager.createOWLOntologyManager(); //create the manager    
        OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologie/E1G1.owl"));
@@ -40,13 +41,7 @@ public class main
       Checks the imports set
     */    
     Stream<OWLImportsDeclaration> impDecs= ontology.importsDeclarations();
-    impDecs.forEach(a-> System.out.println(a.getIRI().toString()));
-    /*
-    IRI Mapper
-    */
-    IRI iri=IRI.create(new File("ontologie/skos.rdf"));
-    manager.getIRIMappers().add(new SimpleIRIMapper(IRI.create("http://www.w3.org/2009/08/skos-reference/skos.rdf"), iri));
-     System.out.println(manager.getIRIMappers().toString());
-   
+    impDecs.forEach(a-> System.out.println(a.getIRI().toString()));  
+    manager.saveOntology(ontology);   
     }
   }
