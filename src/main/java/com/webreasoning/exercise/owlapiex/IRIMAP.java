@@ -29,13 +29,14 @@ public class IRIMAP
   {
    public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException, IOException
     {      
-      OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
-      File output =  new File("ontologie/localOntology.owl"); 
-      IRI documentIRI = IRI.create(output);
+      OWLOntologyManager manager = OWLManager.createOWLOntologyManager(); 
+      OWLDataFactory df = manager.getOWLDataFactory();
+      IRI documentIRI = IRI.create(new File("ontologie/localOntology.owl"));
       IRI remoteIRI=IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
       SimpleIRIMapper mapper = new SimpleIRIMapper(remoteIRI, documentIRI);
       manager.getIRIMappers().add(mapper);
-      OWLOntology ontology = manager.loadOntology(remoteIRI);
+      OWLOntology ontology = manager.loadOntology(remoteIRI);  
+        System.out.println(ontology.getAxiomCount());
       manager.saveOntology(ontology,  new OWLXMLDocumentFormat());
      
     }
