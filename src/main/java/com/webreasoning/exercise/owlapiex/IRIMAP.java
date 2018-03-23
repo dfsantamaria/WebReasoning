@@ -36,7 +36,7 @@ public class IRIMAP
       SimpleIRIMapper mapper = new SimpleIRIMapper(remoteIRI, documentIRI);
       manager.getIRIMappers().add(mapper);
       OWLOntology ontology = manager.loadOntology(remoteIRI);  
-        System.out.println(ontology.getAxiomCount());
+      System.out.println(ontology.getAxiomCount());
       manager.saveOntology(ontology,  new OWLXMLDocumentFormat());
      
     }
