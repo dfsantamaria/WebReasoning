@@ -1,19 +1,14 @@
 package com.webreasoning.exercise.owlapiex;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.stream.Stream;
+import java.io.FileNotFoundException;    
+
 import org.semanticweb.HermiT.Configuration;
 import org.semanticweb.owlapi.apibinding.OWLManager;
-import org.semanticweb.owlapi.model.AddImport;
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLImportsDeclaration;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
-import org.semanticweb.owlapi.util.SimpleIRIMapper;
-import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.HermiT.Reasoner;
 /**
  *
@@ -22,7 +17,7 @@ import org.semanticweb.HermiT.Reasoner;
 public class query
   {
    public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
-    {
+     {
        OWLOntologyManager manager= OWLManager.createOWLOntologyManager(); //create the manager    
        OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologie/E1G1.owl"));
        
@@ -35,8 +30,7 @@ public class query
     reasoner.classifyClasses();
     reasoner.classifyDataProperties();
     reasoner.classifyObjectProperties();
-    System.out.println(reasoner.isConsistent());
-     
+    System.out.println(reasoner.isConsistent());  
     
-    }
+  }
   }
