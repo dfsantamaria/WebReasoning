@@ -30,6 +30,7 @@ import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.util.FileManager;
 import ru.avicomp.ontapi.jena.vocabulary.RDF;
 
 
@@ -39,10 +40,11 @@ public class jenaExample
     public static void main(String[] args)
       {
         
-        OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM, null); // creazione di un'ontologia OWL 1.1 vuota.
+        OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM, null); // creazione di un'ontologia OWL 1.1 vuota.        
         OntDocumentManager dm = m.getDocumentManager(); //creazione del gestore dei file che serializzano l'ontologia.
-                       
+        FileManager fm=dm.getFileManager(); //file manager           
         String unictIRI = "http://dmi.unict.it/ontologia#"; // IRI da utilizzare per le risorse dell'ontologia.
+        m.setNsPrefix("unict",unictIRI); 
         OntClass studenti = m.createClass( unictIRI + "Studenti"); // Creazione della classe Studenti
         OntClass corsi = m.createClass( unictIRI + "Corsi"); // Creazione della classe Corsi
         ObjectProperty segueCorso = m.createObjectProperty( unictIRI + "segueCorso" ); //Creaazione della OP segueCorso.
