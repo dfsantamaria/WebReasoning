@@ -41,8 +41,8 @@ public class jenaExample
       {
         
         OntModel m = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM, null); // creazione di un'ontologia OWL 1.1 vuota.        
-        OntDocumentManager dm = m.getDocumentManager(); //creazione del gestore dei file che serializzano l'ontologia.
-        FileManager fm=dm.getFileManager(); //file manager           
+        OntDocumentManager dm = m.getDocumentManager(); //creazione del gestore del documento ontologico.
+        FileManager fm=dm.getFileManager(); //file manager   che gestisce l'accesso alla sorgente fisica.        
         String unictIRI = "http://dmi.unict.it/ontologia#"; // IRI da utilizzare per le risorse dell'ontologia.
         m.setNsPrefix("unict",unictIRI); 
         OntClass studenti = m.createClass( unictIRI + "Studenti"); // Creazione della classe Studenti
