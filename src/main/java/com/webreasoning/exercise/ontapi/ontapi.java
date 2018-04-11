@@ -37,11 +37,11 @@ public class ontapi
     /* String iri="http://www.w3.org/2009/08/skos-reference/skos.rdf";
      IRI docIRI = IRI.create(iri); 
      OWLOntology ontology = manager.loadOntologyFromOntologyDocument(docIRI);*/
-   
     OWLReasonerFactory reasonerFactoryP = PelletReasonerFactory.getInstance();
     OWLReasoner reasonerP = reasonerFactoryP.createReasoner(ontology, new SimpleConfiguration());    
     reasonerP.precomputeInferences();
     System.out.println(reasonerP.isConsistent());
+   
    
   }
   }
