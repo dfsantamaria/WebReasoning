@@ -30,6 +30,7 @@ import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.rdf.model.Statement;
+import org.apache.jena.update.UpdateAction;
 import org.apache.jena.util.FileManager;
 import ru.avicomp.ontapi.jena.vocabulary.RDF;
 
@@ -117,7 +118,13 @@ public class jenaExample
           String resCognome= nodeRes.asLiteral().toString();
           System.out.println("Cognome dello Studente: "+resCognome);                 
          }             
-         qexec.close();          
+         qexec.close();
+         
+         UpdateAction.parseExecute(
+            "DELETE { ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> } " +
+            "INSERT { ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> } " +
+            "WHERE { ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> }",
+            m);
       }
     
     /* Trick on OWL 2 specification
