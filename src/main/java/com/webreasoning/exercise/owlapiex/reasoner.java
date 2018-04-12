@@ -1,7 +1,8 @@
 package com.webreasoning.exercise.owlapiex;
 import java.io.File;
 import java.io.FileNotFoundException;    
-import openllet.owlapi.PelletReasonerFactory;
+import openllet.owlapi.OpenlletReasoner;
+import openllet.owlapi.OpenlletReasonerFactory;
 
 import org.semanticweb.HermiT.Configuration;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -39,10 +40,13 @@ public class reasoner
     System.out.println(reasoner.isConsistent());  */
     
     
-    OWLReasonerFactory reasonerFactoryP = PelletReasonerFactory.getInstance();
-    OWLReasoner reasonerP = reasonerFactoryP.createReasoner(ontology, new SimpleConfiguration());    
+    OpenlletReasoner reasonerP = OpenlletReasonerFactory.getInstance().createReasoner(ontology);    
     reasonerP.precomputeInferences();
     System.out.println(reasonerP.isConsistent());
+    reasonerP.getKB().realize();
+    reasonerP.getKB().printClassTree();
+    
+    
     
    
   }
