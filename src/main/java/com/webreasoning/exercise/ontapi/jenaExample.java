@@ -32,12 +32,21 @@ import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.update.UpdateAction;
 import org.apache.jena.util.FileManager;
-import ru.avicomp.ontapi.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDF;
 
+//import ru.avicomp.ontapi.jena.vocabulary.RDF;
 
-
+/**
+ *
+ * @author danie
+ */
 public class jenaExample
   {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args)
       {
         
@@ -49,8 +58,7 @@ public class jenaExample
         OntClass studenti = m.createClass( unictIRI + "Studenti"); // Creazione della classe Studenti
         OntClass corsi = m.createClass( unictIRI + "Corsi"); // Creazione della classe Corsi
         ObjectProperty segueCorso = m.createObjectProperty( unictIRI + "segueCorso" ); //Creaazione della OP segueCorso.
-        DatatypeProperty haCognome = m.createDatatypeProperty(unictIRI + "haCognome"); //Creazione della DP haCognome.
-        
+        DatatypeProperty haCognome = m.createDatatypeProperty(unictIRI + "haCognome"); //Creazione della DP haCognome.        
         segueCorso.addRange(corsi); //Range di segueCorso
        
         //Restrizione Esistenziale
@@ -125,7 +133,11 @@ public class jenaExample
             "INSERT { ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> } " +
             "WHERE { ?x <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> }",
             m);
+        // System.out.println(VCARD.getURI().toString());
+      
       }
+    
+       
     
     /* Trick on OWL 2 specification
        MaxCardinalityRestriction restriction = model.createMaxCardinalityRestriction(null, existingDataProperty, 1);                                               
