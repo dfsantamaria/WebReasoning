@@ -42,7 +42,7 @@ public class main
     /*
       Checks the imports set
     */    
-    Stream<OWLImportsDeclaration> impDecs= ontology.importsDeclarations();
+    Stream<OWLImportsDeclaration> impDecs = ontology.importsDeclarations();
     impDecs.forEach(a-> System.out.println(a.getIRI().toString()));  
     manager.saveOntology(ontology);     
  
