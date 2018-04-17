@@ -113,9 +113,17 @@ public class owlapi
       o.logicalAxioms().filter(element -> element.isOfType(CLASS_ASSERTION)
                                ).forEach(element -> ((((OWLClassAssertionAxiom) element)).componentsWithoutAnnotations()
                                        ).forEach(el -> System.out.println(el.toString())));
-       
+                 
+      System.out.println("Filtering axioms");                               
+      o.logicalAxioms().filter(element -> element.isOfType(CLASS_ASSERTION)
+                               ).forEach(element -> ((((OWLClassAssertionAxiom) element)).componentsWithoutAnnotations()
+                                       ).filter(elem -> (elem instanceof OWLClass)).forEach(el -> System.out.println(((OWLClass) el).toString())));
+      
       System.out.println("Filtering axioms");                               
       o.axioms(dsf).forEach(element ->  System.out.println(element));
+      
+      System.out.println("Filtering axioms");                               
+      o.axioms(CLASS_ASSERTION).forEach(element ->  System.out.println(element.getClassExpression().asOWLClass().toString()));
       
     }
     
