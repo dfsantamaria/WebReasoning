@@ -113,7 +113,10 @@ public class owlapi
       o.logicalAxioms().filter(element -> element.isOfType(CLASS_ASSERTION)
                                ).forEach(element -> ((((OWLClassAssertionAxiom) element)).componentsWithoutAnnotations()
                                        ).forEach(el -> System.out.println(el.toString())));
-                                                
+       
+      System.out.println("Filtering axioms");                               
+      o.axioms(dsf).forEach(element ->  System.out.println(element));
+      
     }
     
 }
