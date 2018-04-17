@@ -95,7 +95,15 @@ public class owlapi
       
       
       o.logicalAxioms().forEach(System.out::println);
-      o.axioms().forEach(System.out::println);       
+      o.axioms().forEach(System.out::println); 
+      //Filtering Ontology
+      System.out.println("Filtering ontology");
+      o.signature().filter(element -> !element.isBuiltIn() &&
+                                      element.getIRI().getRemainder().orElse("").startsWith("P") &&
+                                      "Class".equals(element.getEntityType().getName())
+                          ).forEach(element ->  System.out.println(element.toStringID()));                                   
+                                    
+      
     }
     
 }
