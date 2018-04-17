@@ -7,10 +7,12 @@ package com.webreasoning.exercise.owlapiex;
 
 import java.io.FileNotFoundException;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import static org.semanticweb.owlapi.model.AxiomType.CLASS_ASSERTION;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDataProperty;
@@ -101,9 +103,18 @@ public class owlapi
       o.signature().filter(element -> !element.isBuiltIn() &&
                                       element.getIRI().getRemainder().orElse("").startsWith("P") &&
                                       "Class".equals(element.getEntityType().getName())
-                          ).forEach(element ->  System.out.println(element.toStringID()));                                   
-                                    
+                          ).forEach(element ->  System.out.println(element.toStringID()));   
       
+      System.out.println("Filtering axioms");                               
+      o.logicalAxioms().filter(element -> element.isOfType(CLASS_ASSERTION)
+                               ).forEach(element ->  System.out.println(((OWLClassAssertionAxiom) element).getIndividual()));   
+
+      System.out.println("Filtering axioms");                               
+      o.logicalAxioms().filter(element -> element.isOfType(CLASS_ASSERTION)
+                               ).forEach(element -> ((((OWLClassAssertionAxiom) element)).componentsWithoutAnnotations()
+                                       ).forEach(el -> System.out.println(el.toString())));
+                                                
     }
     
 }
+
