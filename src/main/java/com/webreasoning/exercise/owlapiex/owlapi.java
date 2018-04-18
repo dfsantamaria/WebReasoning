@@ -7,6 +7,7 @@ package com.webreasoning.exercise.owlapiex;
 
 import java.io.FileNotFoundException;
 import org.semanticweb.owlapi.apibinding.OWLManager;
+import org.semanticweb.owlapi.model.AddAxiom;
 import static org.semanticweb.owlapi.model.AxiomType.CLASS_ASSERTION;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
@@ -29,6 +30,7 @@ import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.model.OWLSubDataPropertyOfAxiom;
 import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
+import org.semanticweb.owlapi.model.parameters.ChangeApplied;
 import org.semanticweb.owlapi.vocab.OWLFacet;
 import static org.semanticweb.owlapi.vocab.OWLFacet.MIN_INCLUSIVE;
 
@@ -48,7 +50,9 @@ public class owlapi
       OWLClass person = df.getOWLClass(IOR+"#Person");
       OWLClass student = df.getOWLClass(IOR+"#Student");
       OWLDeclarationAxiom da = df.getOWLDeclarationAxiom(person);      
-      o.add(da);
+      ChangeApplied ch=o.add(da);
+      if(ch==ChangeApplied.SUCCESSFULLY)
+          System.out.println("Added: " + da.toString());
       o.add(df.getOWLDeclarationAxiom(student));
       //OWLProperty
       OWLObjectProperty hasFriend= df.getOWLObjectProperty(IOR+"#hasFriend");
@@ -94,8 +98,7 @@ public class owlapi
       OWLClassExpression adultP=df.getOWLObjectIntersectionOf(adult, person);
       OWLSubClassOfAxiom ax = df.getOWLSubClassOfAxiom(adultP, thingsWithAgeGreaterOrEqualTo18);
       o.add(ax);
-      
-      
+            
       o.logicalAxioms().forEach(System.out::println);
       o.axioms().forEach(System.out::println); 
       //Filtering Ontology
@@ -124,6 +127,14 @@ public class owlapi
       
       System.out.println("Filtering axioms");                               
       o.axioms(CLASS_ASSERTION).forEach(element ->  System.out.println(element.getClassExpression().asOWLClass().toString()));
+      
+      
+      OWLIndividual ind2= df.getOWLNamedIndividual(IOR+"#Frank"); 
+      AddAxiom axiomChange = new AddAxiom(o, df.getOWLDeclarationAxiom( (OWLEntity) ind2));
+      if(axiomChange.isAxiomChange() &&  axiomChange.isAddAxiom() &&
+              man.applyChange(axiomChange)== ChangeApplied.SUCCESSFULLY)
+          System.out.println("Axiom added successfully");
+      
       
     }
     
