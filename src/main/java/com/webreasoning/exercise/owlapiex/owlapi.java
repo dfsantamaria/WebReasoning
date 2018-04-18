@@ -28,7 +28,6 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
-import org.semanticweb.owlapi.model.OWLSubDataPropertyOfAxiom;
 import org.semanticweb.owlapi.model.OWLSubObjectPropertyOfAxiom;
 import org.semanticweb.owlapi.model.parameters.ChangeApplied;
 import org.semanticweb.owlapi.vocab.OWLFacet;
@@ -133,10 +132,8 @@ public class owlapi
       AddAxiom axiomChange = new AddAxiom(o, df.getOWLDeclarationAxiom( (OWLEntity) ind2));
       if(axiomChange.isAxiomChange() &&  axiomChange.isAddAxiom() &&
               man.applyChange(axiomChange)== ChangeApplied.SUCCESSFULLY)
-          System.out.println("Axiom added successfully");
-      
+          System.out.println("Axiom added successfully");      
       
     }
     
 }
-
