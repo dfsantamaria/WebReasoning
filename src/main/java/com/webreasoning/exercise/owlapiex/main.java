@@ -42,9 +42,20 @@ public class main
     /*
       Checks the imports set
     */    
-    Stream<OWLImportsDeclaration> impDecs = ontology.importsDeclarations();
-    impDecs.forEach(a-> System.out.println(a.getIRI().toString()));  
-    manager.saveOntology(ontology);     
+     Stream<OWLImportsDeclaration> impDecs = ontology.importsDeclarations();
+     impDecs.forEach(a-> System.out.println(a.getIRI().toString()));  
+     
+     
+      /*Instead of Java Lambdas*/
+      System.out.println("Array instead of Stream");
+      impDecs = ontology.importsDeclarations(); //build a new producer
+      Object[] arr= impDecs.toArray();
+      for (Object arr1 : arr)
+         {
+           System.out.println(((OWLImportsDeclaration) arr1).getIRI().toString());
+         }
+     
+             manager.saveOntology(ontology);     
  
     
     }
