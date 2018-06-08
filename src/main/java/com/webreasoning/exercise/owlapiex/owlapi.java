@@ -53,6 +53,8 @@ public class owlapi
       if(ch==ChangeApplied.SUCCESSFULLY)
           System.out.println("Added: " + da.toString());
       o.add(df.getOWLDeclarationAxiom(student));
+      
+      
       //OWLProperty
       OWLObjectProperty hasFriend= df.getOWLObjectProperty(IOR+"#hasFriend");
       o.add(df.getOWLDeclarationAxiom(hasFriend));
