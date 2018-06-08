@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1528469677111" name="http://www.co-ode.org/ontologies/pizza" uri="pizza.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1528469677111" name="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1" uri="E1G1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1528469677111" name="http://www.w3.org/2002/07/owl#" uri="ontologyExample.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1528469677111" name="http://www.w3.org/2004/02/skos/core" uri="skos.rdf"/>
+    </group>
+</catalog>
