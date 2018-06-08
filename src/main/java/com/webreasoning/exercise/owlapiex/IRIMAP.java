@@ -31,12 +31,14 @@ public class IRIMAP
     {      
       OWLOntologyManager manager = OWLManager.createOWLOntologyManager(); 
       OWLDataFactory df = manager.getOWLDataFactory();
-      IRI documentIRI = IRI.create(new File("ontologie/localOntology.owl"));
+      IRI documentIRI = IRI.create(new File("ontologie/pizza.owl"));
       IRI remoteIRI=IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
       SimpleIRIMapper mapper = new SimpleIRIMapper(remoteIRI, documentIRI);
       manager.getIRIMappers().add(mapper);
-      OWLOntology ontology = manager.loadOntology(remoteIRI);  
+            
+      OWLOntology ontology = manager.loadOntology(documentIRI);  
       System.out.println(ontology.getAxiomCount());
+      System.out.println(ontology.getOntologyID().toString());
       manager.saveOntology(ontology,  new OWLXMLDocumentFormat());
      
     }
