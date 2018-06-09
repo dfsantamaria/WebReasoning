@@ -63,7 +63,7 @@ public class ExerciseWB
          OWLOntology pizzaOntology=manager.loadOntologyFromOntologyDocument(pizzaIri);
          IRI pizzaOIri= IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()+"/pizza.owl"); 
          
-         SimpleIRIMapper mapper = new SimpleIRIMapper(IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()), pizzaIri);
+         SimpleIRIMapper mapper = new SimpleIRIMapper(pizzaIri, IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()));
          manager.getIRIMappers().add(mapper);
                                
          
