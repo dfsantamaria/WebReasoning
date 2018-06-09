@@ -17,14 +17,21 @@ import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
+import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
+import org.semanticweb.owlapi.model.OWLLogicalAxiom;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
+import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
+import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
+import org.semanticweb.owlapi.model.OWLObjectUnionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.model.parameters.ChangeApplied;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
@@ -53,9 +60,7 @@ public class ExerciseWB
          
          SimpleIRIMapper mapper = new SimpleIRIMapper(IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()), pizzaIri);
          manager.getIRIMappers().add(mapper);
-         
-        
-                
+                               
          
          OWLImportsDeclaration importsDeclaration=dataFactory.getOWLImportsDeclaration(pizzaIri);
          AddImport addImportAddAxiom= new AddImport(ontology, importsDeclaration);
@@ -77,16 +82,38 @@ public class ExerciseWB
          
          OWLAxiom oax= dataFactory.getOWLSubClassOfAxiom(sicilianPizza, dataFactory.getOWLClass(pizzaOIri+"#Pizza"));
          manager.addAxiom(ontology, oax);
-         manager.saveOntology(ontology, new OWLXMLDocumentFormat(), IRI.create(documentFile.toURI()));
+        
          
-         ontology.axioms().forEach( ax -> {  System.out.println(ax.toString());
-         
+         ontology.axioms().forEach( ax -> {  System.out.println(ax.toString());        
          
                                            });
            
-              
+         OWLObjectProperty prop=dataFactory.getOWLObjectProperty(iri+"pizzaEater");
+         OWLObjectPropertyRangeAxiom ax1= 
+                 dataFactory.getOWLObjectPropertyRangeAxiom(prop,
+                                                                 dataFactory.getOWLObjectUnionOf(
+                                                                     dataFactory.getOWLClass(pizzaOIri+"#Pizza"), 
+                                                                     dataFactory.getOWLClass(pizzaOIri+"#PizzaTopping"),
+                                                                      dataFactory.getOWLClass(pizzaOIri+"#PizzaBase"))                                                                                      
+                                                            );
+         
+         System.out.println("Filtering Axioms");
+         Stream<OWLLogicalAxiom> axiomSet= Stream.concat(ontology.logicalAxioms(), pizzaOntology.logicalAxioms());
+         
+         axiomSet.filter(axiom-> axiom.isOfType(AxiomType.SUBCLASS_OF)).peek(
+                  axiom -> System.out.println(axiom.toString())).forEach(
+                            element -> ((((OWLSubClassOfAxiom) element)).componentsWithoutAnnotations()).filter( 
+                                    el-> (el instanceof OWLObjectSomeValuesFrom)).forEach(System.out::println)
+                                                                         );
+                                                                         
+                                                                         
+                         
+                                        
+         
+         
+         ontology.add(ax1);
            
          
-         
+          manager.saveOntology(ontology, new OWLXMLDocumentFormat(), IRI.create(documentFile.toURI()));
        }
   }
