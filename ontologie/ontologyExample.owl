@@ -16,10 +16,21 @@
     <Declaration>
         <Class IRI="SicilianPizza"/>
     </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="pizzaEater"/>
+    </Declaration>
     <SubClassOf>
         <Class IRI="SicilianPizza"/>
         <Class IRI="http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza"/>
     </SubClassOf>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="pizzaEater"/>
+        <ObjectUnionOf>
+            <Class IRI="http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza"/>
+            <Class IRI="http://www.co-ode.org/ontologies/pizza/pizza.owl#PizzaBase"/>
+            <Class IRI="http://www.co-ode.org/ontologies/pizza/pizza.owl#PizzaTopping"/>
+        </ObjectUnionOf>
+    </ObjectPropertyRange>
 </Ontology>
 
 
