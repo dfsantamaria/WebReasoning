@@ -13,6 +13,13 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Import>https://protege.stanford.edu/ontologies/pizza/pizza.owl</Import>
+    <Declaration>
+        <Class IRI="SicilianPizza"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="SicilianPizza"/>
+        <Class IRI="http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza"/>
+    </SubClassOf>
 </Ontology>
 
 
