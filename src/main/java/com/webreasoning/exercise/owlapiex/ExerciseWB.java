@@ -26,6 +26,7 @@ import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.parameters.ChangeApplied;
+import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
 /**
  *
@@ -48,15 +49,13 @@ public class ExerciseWB
          
          IRI pizzaIri=IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
          OWLOntology pizzaOntology=manager.loadOntologyFromOntologyDocument(pizzaIri);
+         IRI pizzaOIri= IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()+"/pizza.owl"); 
          
-         IRI pizzaOIri= IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()+"/pizza.owl");
+         SimpleIRIMapper mapper = new SimpleIRIMapper(IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()), pizzaIri);
+         manager.getIRIMappers().add(mapper);
          
-         manager.getOntologies().forEach((o) ->
-           {
-             System.out.println("- "+o.getOntologyID().getOntologyIRI().get().toString());
-           });
-         
-         
+        
+                
          
          OWLImportsDeclaration importsDeclaration=dataFactory.getOWLImportsDeclaration(pizzaIri);
          AddImport addImportAddAxiom= new AddImport(ontology, importsDeclaration);
