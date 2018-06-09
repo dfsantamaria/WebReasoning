@@ -7,8 +7,13 @@ package com.webreasoning.exercise.owlapiex;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.function.Function;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
@@ -98,17 +103,19 @@ public class ExerciseWB
                                                             );
          
          System.out.println("Filtering Axioms");
-         Stream<OWLLogicalAxiom> axiomSet= Stream.concat(ontology.logicalAxioms(), pizzaOntology.logicalAxioms());
+         List<OWLObjectSomeValuesFrom> out= new ArrayList();         
+         Stream<OWLLogicalAxiom> axiomSet= Stream.concat(ontology.logicalAxioms(), pizzaOntology.logicalAxioms());         
+         axiomSet.filter(axiom-> axiom.isOfType(AxiomType.SUBCLASS_OF)).forEach((x) ->
+              x.getAxiomWithoutAnnotations().components().filter(elem -> (elem instanceof OWLObjectSomeValuesFrom)).forEach(
+                      res-> out.add( (OWLObjectSomeValuesFrom)res)));
          
-         axiomSet.filter(axiom-> axiom.isOfType(AxiomType.SUBCLASS_OF)).peek(
-                  axiom -> System.out.println(axiom.toString())).forEach(
-                            element -> ((((OWLSubClassOfAxiom) element)).componentsWithoutAnnotations()).filter( 
-                                    el-> (el instanceof OWLObjectSomeValuesFrom)).forEach(System.out::println)
-                                                                         );
-                                                                         
-                                                                         
+         for(OWLObjectSomeValuesFrom s: out)
+               System.out.println(s.toString());
                          
-                                        
+         
+                                                                         
+                                                                         
+       
          
          
          ontology.add(ax1);
