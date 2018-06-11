@@ -109,18 +109,10 @@ public class ExerciseWB
               x.getAxiomWithoutAnnotations().components().filter(elem -> (elem instanceof OWLObjectSomeValuesFrom)).forEach(
                       res-> out.add( (OWLObjectSomeValuesFrom)res)));
          
-         for(OWLObjectSomeValuesFrom s: out)
-               System.out.println(s.toString());
-                         
+         out.forEach(System.out::println);
+                     
+         ontology.add(ax1);      
          
-                                                                         
-                                                                         
-       
-         
-         
-         ontology.add(ax1);
-           
-         
-          manager.saveOntology(ontology, new OWLXMLDocumentFormat(), IRI.create(documentFile.toURI()));
+         manager.saveOntology(ontology, new OWLXMLDocumentFormat(), IRI.create(documentFile.toURI()));
        }
   }
