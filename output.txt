@@ -1,0 +1,841 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:G1="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <Ontology/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#attivitaSvolta -->
+
+
+    <ObjectProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#attivitaSvolta">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haGenere -->
+
+
+    <ObjectProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haGenere">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haLavoratoPressoStudio -->
+
+
+    <ObjectProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haLavoratoPressoStudio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haLocazioneStudio -->
+
+
+    <ObjectProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haLocazioneStudio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haRuoloInFilm -->
+
+
+    <ObjectProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haRuoloInFilm">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haStudio -->
+
+
+    <ObjectProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haStudio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#ruoloInFilm -->
+
+
+    <ObjectProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#ruoloInFilm">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broadMatch -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broadMatch">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broader -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#broaderTransitive -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broaderTransitive">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#exactMatch"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hasTopConcept -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#topConceptOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#mappingRelation -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#mappingRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#member -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#member">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#memberList -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#memberList">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrowMatch -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrowMatch">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrower"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrower -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrower">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broader"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#narrowerTransitive"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#narrowerTransitive -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrowerTransitive">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#related -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#related">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#relatedMatch -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#relatedMatch">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#mappingRelation"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <rdfs:subPropertyOf>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#related"/>
+            </rdf:Description>
+        </rdfs:subPropertyOf>
+        <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#semanticRelation -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#semanticRelation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#topConceptOf -->
+
+
+    <ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#topConceptOf">
+        <equivalentProperty>
+            <rdf:Description>
+                <inverseOf rdf:resource="http://www.w3.org/2004/02/skos/core#hasTopConcept"/>
+            </rdf:Description>
+        </equivalentProperty>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#inScheme"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haBudgetFilm -->
+
+
+    <DatatypeProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haBudgetFilm">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haCognome -->
+
+
+    <DatatypeProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haCognome">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haDataProduzioneFilm -->
+
+
+    <DatatypeProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haDataProduzioneFilm">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haTitoloFilm -->
+
+
+    <DatatypeProperty rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haTitoloFilm">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#notation -->
+
+
+    <DatatypeProperty rdf:about="http://www.w3.org/2004/02/skos/core#notation">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaAttore -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaAttore">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attività"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Film"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#FilmFantasy"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attività"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Film"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#FilmFantasy"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attività -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attività">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Film"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#FilmFantasy"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attore -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attore">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Persona"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Film -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Film">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#FilmFantasy -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#FilmFantasy">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Film"/>
+        <disjointWith rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Genere -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Genere">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereFantasy -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereFantasy">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Genere"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Genere"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Locazione -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Locazione">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Paese -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Paese">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Persona -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Persona">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Regista -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Regista">
+        <rdfs:subClassOf rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Persona"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Studio -->
+
+
+    <Class rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Studio">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#List -->
+
+
+    <Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#List">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2002/07/owl#Nothing"/>
+    </Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Nothing -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Nothing">
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Collection -->
+
+
+    <Class rdf:about="http://www.w3.org/2004/02/skos/core#Collection">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    </Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+
+    <Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+    </Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+
+    <Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <disjointWith rdf:resource="http://www.w3.org/2004/02/skos/core#OrderedCollection"/>
+    </Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#OrderedCollection -->
+
+
+    <Class rdf:about="http://www.w3.org/2004/02/skos/core#OrderedCollection">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Collection"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaAttore -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaAttore">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaAttore"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attività"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attività"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereFantasy -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereFantasy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Genere"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereFantasy"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Genere"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#JDPiratesCarribean2003 -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#JDPiratesCarribean2003">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm"/>
+        <G1:attivitaSvolta rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaAttore"/>
+        <G1:ruoloInFilm rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#PiratesOfCarribean2013"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#JohnnyDepp -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#JohnnyDepp">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attore"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Persona"/>
+        <G1:haRuoloInFilm rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#JDPiratesCarribean2003"/>
+        <G1:haCognome>Depp</G1:haCognome>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#PiratesOfCarribean2013 -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#PiratesOfCarribean2013">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Film"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#FilmFantasy"/>
+        <G1:haGenere rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereFantasy"/>
+        <G1:haStudio rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#WaltDisneyPictures"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RBPiratesCarribean2003 -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RBPiratesCarribean2003">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RuoloInFilm"/>
+        <G1:attivitaSvolta rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista"/>
+        <G1:ruoloInFilm rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#PiratesOfCarribean2013"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RobMarshall -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RobMarshall">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Persona"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Regista"/>
+        <G1:haRuoloInFilm rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#RBPiratesCarribean2003"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#StatiUnitiAmerica -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#StatiUnitiAmerica">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Locazione"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Paese"/>
+    </Thing>
+    
+
+
+    <!-- http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#WaltDisneyPictures -->
+
+
+    <Thing rdf:about="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#WaltDisneyPictures">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Studio"/>
+        <G1:haLocazioneStudio rdf:resource="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#StatiUnitiAmerica"/>
+    </Thing>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.4) https://github.com/owlcs/owlapi/ -->
+
+

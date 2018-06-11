@@ -8,12 +8,7 @@ package com.webreasoning.exercise.owlapiex;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.function.Function;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
@@ -22,7 +17,6 @@ import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
-import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
@@ -30,13 +24,11 @@ import org.semanticweb.owlapi.model.OWLLogicalAxiom;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyRangeAxiom;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
-import org.semanticweb.owlapi.model.OWLObjectUnionOf;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
-import org.semanticweb.owlapi.model.OWLSubClassOfAxiom;
 import org.semanticweb.owlapi.model.parameters.ChangeApplied;
 import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
@@ -63,7 +55,7 @@ public class ExerciseWB
          OWLOntology pizzaOntology=manager.loadOntologyFromOntologyDocument(pizzaIri);
          IRI pizzaOIri= IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()+"/pizza.owl"); 
          
-         SimpleIRIMapper mapper = new SimpleIRIMapper(pizzaIri, IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()));
+         SimpleIRIMapper mapper = new SimpleIRIMapper(IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()),pizzaIri);
          manager.getIRIMappers().add(mapper);
                                
          

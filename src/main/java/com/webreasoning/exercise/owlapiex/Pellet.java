@@ -12,14 +12,18 @@ import org.semanticweb.owlapi.model.OWLOntologyCreationException;
 import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.HermiT.Reasoner;
+import org.semanticweb.HermiT.Reasoner.ReasonerFactory;
+import org.semanticweb.owlapi.formats.OWLXMLDocumentFormat;
+import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.reasoner.SimpleConfiguration;
+import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 /**
  *
  * @author Daniele Francesco Santamaria 
  */
-public class reasoner
+public class Pellet
   {
    public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
      {
@@ -33,11 +37,11 @@ public class reasoner
     /*
     OWLDataFactory datafact=manager.getOWLDataFactory();
     Configuration config= new Configuration();
-    Reasoner reasoner= new Reasoner(config, ontology);
-    reasoner.classifyClasses();
-    reasoner.classifyDataProperties();
-    reasoner.classifyObjectProperties();
-    System.out.println(reasoner.isConsistent());  */
+    Reasoner Pellet= new Reasoner(config, ontology);
+    Pellet.classifyClasses();
+    Pellet.classifyDataProperties();
+    Pellet.classifyObjectProperties();
+    System.out.println(Pellet.isConsistent());  */
     
     
     OpenlletReasoner reasonerP = OpenlletReasonerFactory.getInstance().createReasoner(ontology);    
@@ -46,8 +50,15 @@ public class reasoner
     reasonerP.getKB().realize();
     reasonerP.getKB().printClassTree();
     
+    InferredOntologyGenerator iog = new InferredOntologyGenerator(reasonerP);    
+    OWLOntology inferredOntology = manager.createOntology(IRI.create("http://www.dmi.unict.it/webreasoning/2017/exercise/1G1InfPellet"));   
+    iog.fillOntology(manager.getOWLDataFactory(), inferredOntology);
+    System.out.println("Axioms: "+ontology.getAxiomCount());     
+    System.out.println("Inferred Axioms: "+inferredOntology.getAxiomCount());
+    File infFile=new File("ontologie/E1G1_inf.owl");
+    manager.saveOntology(inferredOntology, new OWLXMLDocumentFormat(), IRI.create(infFile.toURI()));
     
+      
     
-   
   }
   }
