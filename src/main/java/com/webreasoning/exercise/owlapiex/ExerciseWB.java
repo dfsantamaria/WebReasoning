@@ -40,6 +40,7 @@ public class ExerciseWB
   {
      public static void main (String[]args) throws OWLOntologyCreationException, IOException, OWLOntologyStorageException 
        {
+           
          OWLOntologyManager manager=OWLManager.createOWLOntologyManager();
          File documentFile= new File("ontologie/ontologyExample.owl");
          documentFile.createNewFile();
@@ -47,12 +48,12 @@ public class ExerciseWB
          OWLOntologyID id=new OWLOntologyID( iri, IRI.create(iri+"/1.0"));
          OWLOntology ontology=manager.createOntology(id);
          
-         //OWLDataFactory dataFactory=manager.getOWLDataFactory();
-        
+         //OWLDataFactory dataFactory=manager.getOWLDataFactory();        
          OWLDataFactory dataFactory=ontology.getOWLOntologyManager().getOWLDataFactory();
          
          IRI pizzaIri=IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
          OWLOntology pizzaOntology=manager.loadOntologyFromOntologyDocument(pizzaIri);
+                                            
          IRI pizzaOIri= IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()+"/pizza.owl"); 
          
          SimpleIRIMapper mapper = new SimpleIRIMapper(IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()),pizzaIri);
@@ -65,9 +66,10 @@ public class ExerciseWB
          Stream<OWLImportsDeclaration> imp= ontology.importsDeclarations();
          
          imp.forEach( streamob -> System.out.println("Imported: "+streamob.getIRI()));
-             
+           
          
          OWLClass sicilianPizza= dataFactory.getOWLClass(iri+"SicilianPizza");
+        
          OWLDeclarationAxiom oda= dataFactory.getOWLDeclarationAxiom(sicilianPizza);
          
          
@@ -93,6 +95,7 @@ public class ExerciseWB
                                                                      dataFactory.getOWLClass(pizzaOIri+"#PizzaTopping"),
                                                                       dataFactory.getOWLClass(pizzaOIri+"#PizzaBase"))                                                                                      
                                                             );
+         ontology.add(ax1);
          
          System.out.println("Filtering Axioms");
          List<OWLObjectSomeValuesFrom> out= new ArrayList();         
@@ -103,7 +106,7 @@ public class ExerciseWB
          
          out.forEach(System.out::println);
                      
-         ontology.add(ax1);      
+               
          
          manager.saveOntology(ontology, new OWLXMLDocumentFormat(), IRI.create(documentFile.toURI()));
        }
