@@ -22,15 +22,18 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 import org.semanticweb.owlapi.model.AxiomType;
+import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
+import org.semanticweb.owlapi.util.OWLEntityRemover;
 import org.semanticweb.owlapi.vocab.OWL2Datatype;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
@@ -54,7 +57,7 @@ public class Example
         String iri="http://www.dmi.unict.it/ontoceramic/reperti.owl#";
         OWLClass reperto= dataFactory.getOWLClass(iri+"Reperto");
         List<OWLObjectPropertyAssertionAxiom> out= new ArrayList(); 
-        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.OBJECT_PROPERTY_ASSERTION)).filter( s -> ((OWLObjectPropertyAssertionAxiom)s).getProperty().getNamedProperty().toStringID().endsWith("haDimensione")).forEach(x->out.add((OWLObjectPropertyAssertionAxiom)x));
+        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.OBJECT_PROPERTY_ASSERTION)).filter( s -> ((OWLObjectPropertyAssertionAxiom)s).getProperty().getNamedProperty().toStringID().endsWith("haDiametro__")).forEach(x->out.add((OWLObjectPropertyAssertionAxiom)x));
        // out.forEach(System.out::println);
         
         for(OWLObjectPropertyAssertionAxiom s: out)
@@ -63,6 +66,16 @@ public class Example
              System.out.println(s.getObject().toStringID());
              System.out.println(s.getProperty().getNamedProperty().toStringID());
              System.out.println("---");
+             
+             OWLNamedIndividual sub=dataFactory.getOWLNamedIndividual(s.getSubject().toStringID());
+             OWLObjectProperty prop=dataFactory.getOWLObjectProperty(s.getProperty().getNamedProperty().toStringID());
+             OWLNamedIndividual obj=dataFactory.getOWLNamedIndividual(s.getObject().toStringID());
+             
+             OWLEntityRemover entR= new OWLEntityRemover(ontology);
+             obj.accept(entR);
+             prop.accept(entR);
+             manager.applyChanges(entR.getChanges());
+             entR.reset();
           }
 //        
 //        File inputFile = new File("input/input.xml");
