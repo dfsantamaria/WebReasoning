@@ -46,7 +46,7 @@ import uk.ac.manchester.cs.owl.owlapi.OWLClassAssertionAxiomImpl;
  *
  * @author Daniele Santamaria
  */
-public class Example
+public class Diametro
   {
     public static void main (String [] args) throws IOException, OWLOntologyCreationException, ParserConfigurationException, SAXException, OWLOntologyStorageException
      {
@@ -57,25 +57,66 @@ public class Example
         String iri="http://www.dmi.unict.it/ontoceramic/reperti.owl#";
         OWLClass reperto= dataFactory.getOWLClass(iri+"Reperto");
         List<OWLObjectPropertyAssertionAxiom> out= new ArrayList(); 
-        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.OBJECT_PROPERTY_ASSERTION)).filter( s -> ((OWLObjectPropertyAssertionAxiom)s).getProperty().getNamedProperty().toStringID().endsWith("haDiametro__")).forEach(x->out.add((OWLObjectPropertyAssertionAxiom)x));
+        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.OBJECT_PROPERTY_ASSERTION)).filter( s -> ((OWLObjectPropertyAssertionAxiom)s).getProperty().getNamedProperty().getIRI().getFragment().equals("haDiametro__")).forEach(x->out.add((OWLObjectPropertyAssertionAxiom)x));
        // out.forEach(System.out::println);
         
         for(OWLObjectPropertyAssertionAxiom s: out)
-          {
-             System.out.println(s.getSubject().toStringID());
-             System.out.println(s.getObject().toStringID());
-             System.out.println(s.getProperty().getNamedProperty().toStringID());
-             System.out.println("---");
+          {                
              
              OWLNamedIndividual sub=dataFactory.getOWLNamedIndividual(s.getSubject().toStringID());
              OWLObjectProperty prop=dataFactory.getOWLObjectProperty(s.getProperty().getNamedProperty().toStringID());
              OWLNamedIndividual obj=dataFactory.getOWLNamedIndividual(s.getObject().toStringID());
+              
+             OWLNamedIndividual misurazione=dataFactory.getOWLNamedIndividual(sub.getIRI().getIRIString()+"MisurazioneDiametro");
+             OWLAxiom misAx=dataFactory.getOWLObjectPropertyAssertionAxiom( 
+                       dataFactory.getOWLObjectProperty(iri+"haMisurazione"), sub, misurazione);
+             ontology.add(misAx);
+           
+             misAx=dataFactory.getOWLClassAssertionAxiom(dataFactory.getOWLClass(iri+"MisurazioneDiametro"), misurazione);
+             ontology.add(misAx);
+             
+            ontology.add(dataFactory.getOWLObjectPropertyAssertionAxiom(
+                         dataFactory.getOWLObjectProperty(iri+"haTipoMisurazione"), misurazione, dataFactory.getOWLNamedIndividual(iri+"diametro")));
+             
+            
+             ontology.add(dataFactory.getOWLObjectPropertyAssertionAxiom(
+                         dataFactory.getOWLObjectProperty(iri+"haUnitàDiMisura"), misurazione, dataFactory.getOWLNamedIndividual(iri+"centimetro")));
+             
+            
+             String value=s.getObject().toStringID().trim();
+             value=value.substring(value.indexOf("#")+1);
+            
+             if(value.startsWith("Ø"))
+                 value=value.substring(1);
+             if(value.startsWith("Cm"))
+                 value=value.substring(2);
+             value=value.replace(",",".");
+             if(value.contains("-"))
+                 value=value.substring(value.indexOf("-")+1);           
+             
+             try
+                {
+                   double dval=Double.valueOf(value);
+                   ontology.add(dataFactory.getOWLDataPropertyAssertionAxiom(
+                         dataFactory.getOWLDataProperty(iri+"haValoreMisura"), misurazione, dataFactory.getOWLLiteral(dval)));
+                } 
+              catch (NumberFormatException e)
+                {                   
+                  System.out.print("Error on ");
+                  System.out.println(value);
+                  System.out.println(s.getSubject().toStringID());
+                  System.out.println(s.getObject().toStringID());
+                  System.out.println(s.getProperty().getNamedProperty().toStringID());
+                  System.out.println("---");  
+                }                       
              
              OWLEntityRemover entR= new OWLEntityRemover(ontology);
              obj.accept(entR);
              prop.accept(entR);
+             dataFactory.getOWLObjectProperty(iri+"haDiametro__").accept(entR);
              manager.applyChanges(entR.getChanges());
              entR.reset();
+               
           }
 //        
 //        File inputFile = new File("input/input.xml");

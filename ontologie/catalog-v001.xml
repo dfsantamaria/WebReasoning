@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1539020884841" name="duplicate:http://www.dmi.unict.it/ontoceramic/reperti.owl" uri="reperti-out.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1539020884841" name="duplicate:http://www.dmi.unict.it/ontoceramic/reperti.owl" uri="reperti.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1539070807202" name="duplicate:http://www.dmi.unict.it/ontoceramic/reperti.owl" uri="reperti-out.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1539070807202" name="duplicate:http://www.dmi.unict.it/ontoceramic/reperti.owl" uri="reperti.owl"/>
     </group>
 </catalog>
