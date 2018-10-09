@@ -8,8 +8,6 @@ package com.webreasoning.exercise.owlapiex;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLDataFactory;
@@ -21,17 +19,22 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
+<<<<<<< HEAD:src/main/java/com/webreasoning/exercise/owlapiex/Diametro.java
 import org.semanticweb.owlapi.model.AxiomType;
 import org.semanticweb.owlapi.model.OWLAxiom;
+=======
+>>>>>>> parent of 91ce311... Cleaning Reperti:src/main/java/com/webreasoning/exercise/owlapiex/Example.java
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
-import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+<<<<<<< HEAD:src/main/java/com/webreasoning/exercise/owlapiex/Diametro.java
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLObjectSomeValuesFrom;
+=======
+>>>>>>> parent of 91ce311... Cleaning Reperti:src/main/java/com/webreasoning/exercise/owlapiex/Example.java
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.util.OWLEntityRemover;
 import org.semanticweb.owlapi.vocab.OWL2Datatype;
@@ -51,9 +54,13 @@ public class Diametro
     public static void main (String [] args) throws IOException, OWLOntologyCreationException, ParserConfigurationException, SAXException, OWLOntologyStorageException
      {
         OWLOntologyManager manager=OWLManager.createOWLOntologyManager();
-        OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologie/reperti.owl"));
-        File documentFile= new File("ontologie/reperti-out.owl");        
+        File documentFile= new File("ontologie/ontologyFromXML.owl");
+        documentFile.createNewFile();
+        IRI iri= IRI.create("http://www.dmi.webreasoning.xmlexecitation.owl#");
+        OWLOntologyID id=new OWLOntologyID( iri, IRI.create(iri+"/1.0"));
+        OWLOntology ontology=manager.createOntology(id);
         OWLDataFactory dataFactory=ontology.getOWLOntologyManager().getOWLDataFactory();
+<<<<<<< HEAD:src/main/java/com/webreasoning/exercise/owlapiex/Diametro.java
         String iri="http://www.dmi.unict.it/ontoceramic/reperti.owl#";
         OWLClass reperto= dataFactory.getOWLClass(iri+"Reperto");
         List<OWLObjectPropertyAssertionAxiom> out= new ArrayList(); 
@@ -172,6 +179,62 @@ public class Diametro
 //             }
 //             
 //         }
+=======
+        
+        File inputFile = new File("input/input.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document doc = dBuilder.parse(inputFile);
+        doc.getDocumentElement().normalize();
+        System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+        
+         NodeList nList = doc.getElementsByTagName("student");
+        
+         OWLClass student= dataFactory.getOWLClass(iri+"Student");  
+         OWLDataProperty hasName=dataFactory.getOWLDataProperty(iri+"hasName");
+         OWLDataProperty hasSurname=dataFactory.getOWLDataProperty(iri+"hasSurname");
+         OWLDataProperty hasNickname=dataFactory.getOWLDataProperty(iri+"hasSurname");
+         OWLDataProperty hasMark=dataFactory.getOWLDataProperty(iri+"hasMark");
+         OWLDataProperty hasRollNum=dataFactory.getOWLDataProperty(iri+"hasRollNum");
+         
+         manager.addAxiom(ontology, dataFactory.getOWLDeclarationAxiom(student));
+         manager.addAxiom(ontology, dataFactory.getOWLDataPropertyRangeAxiom(hasName, OWL2Datatype.XSD_STRING));
+         manager.addAxiom(ontology, dataFactory.getOWLDataPropertyRangeAxiom(hasSurname, OWL2Datatype.XSD_STRING));
+         manager.addAxiom(ontology, dataFactory.getOWLDataPropertyRangeAxiom(hasNickname, OWL2Datatype.XSD_STRING));
+         manager.addAxiom(ontology, dataFactory.getOWLDataPropertyRangeAxiom(hasMark, OWL2Datatype.XSD_INT));
+         manager.addAxiom(ontology, dataFactory.getOWLDataPropertyRangeAxiom(hasRollNum, OWL2Datatype.XSD_INT));
+         
+         
+         
+        
+        for (int temp = 0; temp < nList.getLength(); temp++)
+         {
+            Node nNode = nList.item(temp);
+            //System.out.println("\nCurrent Element :" + nNode.getNodeName());
+            
+            if (nNode.getNodeType() == Node.ELEMENT_NODE)
+             {
+                Element eElement = (Element) nNode;
+                String name=eElement.getElementsByTagName("firstname").item(0).getTextContent();
+                String surname=eElement.getElementsByTagName("lastname").item(0).getTextContent();
+                String rollno=eElement.getAttribute("rollno");
+                String nickname= eElement.getElementsByTagName("nickname").item(0).getTextContent();
+                String mark=eElement.getElementsByTagName("marks").item(0).getTextContent();                
+                OWLNamedIndividual ind= dataFactory.getOWLNamedIndividual(IRI.create(iri+"#"+name+"_"+surname+"_"+nickname));
+                manager.addAxiom(ontology, dataFactory.getOWLClassAssertionAxiom(student,ind));
+                manager.addAxiom(ontology, dataFactory.getOWLDataPropertyAssertionAxiom(hasName, ind, dataFactory.getOWLLiteral(name, OWL2Datatype.XSD_STRING)));
+                manager.addAxiom(ontology, dataFactory.getOWLDataPropertyAssertionAxiom(hasSurname, ind, dataFactory.getOWLLiteral(surname, OWL2Datatype.XSD_STRING)));
+                manager.addAxiom(ontology, dataFactory.getOWLDataPropertyAssertionAxiom(hasNickname, ind, dataFactory.getOWLLiteral(nickname, OWL2Datatype.XSD_STRING)));
+                manager.addAxiom(ontology, dataFactory.getOWLDataPropertyAssertionAxiom(hasRollNum, ind, dataFactory.getOWLLiteral(rollno, OWL2Datatype.XSD_INT)));                
+                manager.addAxiom(ontology, dataFactory.getOWLDataPropertyAssertionAxiom(hasMark, ind, dataFactory.getOWLLiteral(mark, OWL2Datatype.XSD_INT)));
+                
+                
+               
+               
+             }
+             
+         }
+>>>>>>> parent of 91ce311... Cleaning Reperti:src/main/java/com/webreasoning/exercise/owlapiex/Example.java
         manager.saveOntology(ontology, IRI.create(documentFile.toURI()));
      }
   }

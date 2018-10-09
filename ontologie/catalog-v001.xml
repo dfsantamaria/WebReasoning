@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+<<<<<<< HEAD
     <uri id="Imports Wizard Entry" name="http://www.dmi.unict.it/ontoceramic/reperti.owl" uri="reperti-origin.owl"/>
     <uri id="Imports Wizard Entry" name="http://www.dmi.unict.it/ontoceramic/reperti.owl" uri="reperti-out-misure.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
         <uri id="Automatically generated entry, Timestamp=1539084487333" name="http://www.dmi.unict.it/ontoceramic/reperti-catalog.owl#" uri="reperti-catalog.owl"/>
         <uri id="Automatically generated entry, Timestamp=1539084487333" name="http://www.dmi.unict.it/ontoceramic/reperti.owl" uri="reperti-origin.owl"/>
+=======
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1529078097549" name="http://www.co-ode.org/ontologies/pizza" uri="pizza.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1529078097549" name="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1" uri="E1G1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1529078097549" name="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1InfHermit" uri="E1G1_infHermit.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1529078097549" name="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1InfPellet" uri="E1G1_inf.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1529078097549" name="http://www.dmi.webreasoning.execitation.owl#" uri="ontologyExample.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1529078097549" name="http://www.dmi.webreasoning.xmlexecitation.owl" uri="ontologyFromXML.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1529078097549" name="http://www.w3.org/2004/02/skos/core" uri="skos.rdf"/>
+>>>>>>> parent of 91ce311... Cleaning Reperti
     </group>
 </catalog>
