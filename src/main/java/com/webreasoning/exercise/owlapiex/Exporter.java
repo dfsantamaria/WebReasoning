@@ -61,7 +61,7 @@ public class Exporter
         String iri="http://www.dmi.unict.it/ontoceramic/reperti.owl#";
         OWLClass reperto= dataFactory.getOWLClass(iri+"Reperto");
         List<OWLIndividual> out= new ArrayList(); 
-        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.CLASS_ASSERTION)).filter(t->((OWLClassAssertionAxiom)t).getClassExpression().getClassExpressionType()==ClassExpressionType.OWL_CLASS).filter(d->((OWLClassAssertionAxiom)d).getClassExpression().asOWLClass().getIRI().toString().endsWith("Misurazione")).forEach(s->out.add( ((OWLClassAssertionAxiom)s).getIndividual()));
+        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.CLASS_ASSERTION)).filter(t->((OWLClassAssertionAxiom)t).getClassExpression().getClassExpressionType()==ClassExpressionType.OWL_CLASS).filter(d->((OWLClassAssertionAxiom)d).getClassExpression().asOWLClass().getIRI().toString().endsWith("Reperto")).forEach(s->out.add( ((OWLClassAssertionAxiom)s).getIndividual()));
           // filter(d->((OWLClassAssertionAxiom)d).getClassExpression().asOWLClass().getIRI().getFragment()=="Misurazione")      
         for(OWLIndividual s: out)
              System.out.println(s.toStringID());
