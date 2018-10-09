@@ -22,6 +22,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.ParserConfigurationException;
 import org.semanticweb.owlapi.model.AxiomType;
+import org.semanticweb.owlapi.model.ClassExpressionType;
 import org.semanticweb.owlapi.model.OWLAxiom;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
@@ -29,6 +30,7 @@ import org.semanticweb.owlapi.model.OWLDataProperty;
 import org.semanticweb.owlapi.model.OWLDataPropertyAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLDeclarationAxiom;
 import org.semanticweb.owlapi.model.OWLEntity;
+import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.model.OWLObjectProperty;
 import org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom;
@@ -52,30 +54,21 @@ public class Exporter
     public static void main (String [] args) throws IOException, OWLOntologyCreationException, ParserConfigurationException, SAXException, OWLOntologyStorageException
      {
         OWLOntologyManager manager=OWLManager.createOWLOntologyManager();
-        OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologie/reperti-out-misure.owl"));
-        OWLOntology ontologyOut=manager.loadOntologyFromOntologyDocument(new File("ontologie/reperti-catalog.owl"));
-                
+        manager.loadOntologyFromOntologyDocument(new File("ontologie/reperti-origin.owl"));
+        OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologie/reperti-catalog.owl"));
+                       
         OWLDataFactory dataFactory=ontology.getOWLOntologyManager().getOWLDataFactory();
         String iri="http://www.dmi.unict.it/ontoceramic/reperti.owl#";
         OWLClass reperto= dataFactory.getOWLClass(iri+"Reperto");
-        List<OWLAxiom> out= new ArrayList(); 
-        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.OBJECT_PROPERTY_ASSERTION)).filter( s -> ((OWLObjectPropertyAssertionAxiom)s).getProperty().getNamedProperty().getIRI().getFragment().equals("haTipoMisurazione")).forEach(x->out.add((OWLObjectPropertyAssertionAxiom)x));
-        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.OBJECT_PROPERTY_ASSERTION)).filter( s -> ((OWLObjectPropertyAssertionAxiom)s).getProperty().getNamedProperty().getIRI().getFragment().equals("haUnitàDiMisura")).forEach(x->out.add((OWLObjectPropertyAssertionAxiom)x));
-        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.DATA_PROPERTY_ASSERTION)).filter( s -> ((OWLDataPropertyAssertionAxiom)s).getProperty().asOWLDataProperty().getIRI().getFragment().equals("haValoreMisura")).forEach(x->out.add((OWLDataPropertyAssertionAxiom)x));
-       
-
-        OWLEntityRemover entR= new OWLEntityRemover(ontology);
-        ontology.removeAxioms(out);
-        ontologyOut.addAxioms(out);
-             
-             
-           
-             
-        //   manager.applyChanges(entR.getChanges());
-        //   entR.reset();            
+        List<OWLIndividual> out= new ArrayList(); 
+        ontology.logicalAxioms().filter(axiom-> axiom.isOfType(AxiomType.CLASS_ASSERTION)).filter(t->((OWLClassAssertionAxiom)t).getClassExpression().getClassExpressionType()==ClassExpressionType.OWL_CLASS).filter(d->((OWLClassAssertionAxiom)d).getClassExpression().asOWLClass().getIRI().toString().endsWith("Misurazione")).forEach(s->out.add( ((OWLClassAssertionAxiom)s).getIndividual()));
+          // filter(d->((OWLClassAssertionAxiom)d).getClassExpression().asOWLClass().getIRI().getFragment()=="Misurazione")      
+        for(OWLIndividual s: out)
+             System.out.println(s.toStringID());
+               
           
 
         manager.saveOntology(ontology);
-        manager.saveOntology(ontologyOut);
+        
      }
   }
