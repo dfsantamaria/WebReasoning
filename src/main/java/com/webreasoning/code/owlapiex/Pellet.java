@@ -1,4 +1,4 @@
-package com.webreasoning.exercise.owlapiex;
+package com.webreasoning.code.owlapiex;
 import java.io.File;
 import java.io.FileNotFoundException;    
 import openllet.owlapi.OpenlletReasoner;

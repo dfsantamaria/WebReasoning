@@ -1,0 +1,24 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:mr3="http://mr3.sourceforge.net#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdfs:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  <rdfs:Class rdf:about="http://mr3.sourceforge.net#MarriedWoman">
+    <rdfs:subClassOf>
+      <rdfs:Class rdf:about="http://mr3.sourceforge.net#Woman"/>
+    </rdfs:subClassOf>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+  <rdfs:Class rdf:about="http://mr3.sourceforge.net#Woman">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdfs:Class>
+  <owl:DatatypeProperty rdf:about="http://mr3.sourceforge.net#hasMaidenName">
+    <rdfs:domain rdf:resource="http://mr3.sourceforge.net#MarriedWoman"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+  </owl:DatatypeProperty>
+  <mr3:MarriedWoman rdf:about="http://mr3.sourceforge.net#Karen">
+    <mr3:hasMaidenName rdf:datatype="http://www.w3.org/2001/XMLSchema#Name"
+    >Stephens</mr3:hasMaidenName>
+  </mr3:MarriedWoman>
+</rdf:RDF>

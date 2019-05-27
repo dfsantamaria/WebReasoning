@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.webreasoning.exercise.owlapiex;
+package com.webreasoning.code.owlapiex;
 
 import java.io.FileNotFoundException;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -35,7 +35,7 @@ import static org.semanticweb.owlapi.vocab.OWLFacet.MIN_INCLUSIVE;
 
 /**
  *
- * @author danie
+ * @author Daniele Francesco Santamaria
  */
 public class owlapi 
 {    

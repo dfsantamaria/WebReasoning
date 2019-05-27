@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.webreasoning.exercise.owlapiex;
+package com.webreasoning.code.owlapiex;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +34,7 @@ import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
 /**
  *
- * @author danie
+ * @author Daniele Francesco Santamaria
  */
 public class ExerciseWB 
   {

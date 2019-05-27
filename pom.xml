@@ -27,7 +27,11 @@
     <version>1.4.1.513</version>    
          <type>jar</type>
       </dependency>
-
+      <dependency>
+   <groupId>ru.avicomp</groupId>
+   <artifactId>ontapi</artifactId>
+   <version>1.3.0</version>
+ </dependency> 
 <!-- https://mvnrepository.com/artifact/com.github.galigator.openllet/openllet-pellint -->
 <dependency>
     <groupId>com.github.galigator.openllet</groupId>
