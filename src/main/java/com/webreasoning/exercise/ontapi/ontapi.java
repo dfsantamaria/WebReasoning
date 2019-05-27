@@ -39,7 +39,7 @@ public class ontapi
          */
         OWLOntologyManager manager = OntManagers.createONT();   
         OWLDataFactory factory = manager.getOWLDataFactory();
-        OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologies/esempio.owl"));
+        OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologies"+File.separator+"esempio.owl"));
        
     /* String iri="http://www.w3.org/2009/08/skos-reference/skos.rdf";
      IRI docIRI = IRI.create(iri); 

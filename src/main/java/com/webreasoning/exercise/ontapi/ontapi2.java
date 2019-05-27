@@ -44,7 +44,7 @@ public class ontapi2
         OntGraphModel modelJ = OntModelFactory.createModel();
         try 
            {
-             InputStream in = FileManager.get().open("ontologies/esempio.owl");        
+             InputStream in = FileManager.get().open("ontologies"+File.separator+"esempio.owl");        
              modelJ.read(in, null);   
             } 
          catch (JenaException je) 
