@@ -30,10 +30,10 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#narrowMatch"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#Collection"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.w3.org/2004/02/skos/core#Collection"/>
+        <Class IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#haBudgetFilm"/>
@@ -111,10 +111,10 @@
         <Class IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attore"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#StatiUnitiAmerica"/>
+        <NamedIndividual IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#GenereHorror"/>
+        <NamedIndividual IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#StatiUnitiAmerica"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#related"/>
@@ -144,10 +144,10 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#memberList"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broaderTransitive"/>
+        <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#broadMatch"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#semanticRelation"/>
@@ -165,13 +165,13 @@
         <ObjectProperty IRI="http://www.w3.org/2004/02/skos/core#relatedMatch"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista"/>
+        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#Attività"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <Class IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaRegista"/>
     </Declaration>
     <Declaration>
         <Class IRI="http://www.dmi.unict.it/webreasoning/2017/exercise/1G1#AttivitaAttore"/>
