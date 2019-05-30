@@ -41,63 +41,64 @@ public class owlapi
 {    
    public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
     {
-      IRI IOR = IRI.create("http://dmi.unict.webreasoning/examples");
-      OWLOntologyManager man = OWLManager.createOWLOntologyManager();
-      OWLOntology o = man.createOntology(IOR);
-      OWLDataFactory df = o.getOWLOntologyManager().getOWLDataFactory();
+      IRI IOR = IRI.create("http://dmi.unict.webreasoning/examples.owl");
+      OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
+      OWLOntology o = manager.createOntology(IOR);
+      OWLDataFactory datafactory = o.getOWLOntologyManager().getOWLDataFactory();
       //OWL Class
-      OWLClass person = df.getOWLClass(IOR+"#Person");
-      OWLClass student = df.getOWLClass(IOR+"#Student");
-      OWLDeclarationAxiom da = df.getOWLDeclarationAxiom(person);      
-      ChangeApplied ch=o.add(da);
-      if(ch==ChangeApplied.SUCCESSFULLY)
-          System.out.println("Added: " + da.toString());
-      o.add(df.getOWLDeclarationAxiom(student));
+      OWLClass person = datafactory.getOWLClass(IOR+"#Person");
+      OWLClass student = datafactory.getOWLClass(IOR+"#Student");
+      // Entities declaration
+      OWLDeclarationAxiom declaration = datafactory.getOWLDeclarationAxiom(person);      
+      ChangeApplied changes=o.add(declaration);
+      if(changes==ChangeApplied.SUCCESSFULLY)
+          System.out.println("\n Declaration added: " + declaration.toString()+"\n");
+      o.add(datafactory.getOWLDeclarationAxiom(student));
       
       
       //OWLProperty
-      OWLObjectProperty hasFriend= df.getOWLObjectProperty(IOR+"#hasFriend");
-      o.add(df.getOWLDeclarationAxiom(hasFriend));
-      OWLObjectProperty knows= df.getOWLObjectProperty(IOR+"#knows");
-      o.add(df.getOWLDeclarationAxiom(knows));
+      OWLObjectProperty hasFriend= datafactory.getOWLObjectProperty(IOR+"#hasFriend");
+      o.add(datafactory.getOWLDeclarationAxiom(hasFriend));
+      OWLObjectProperty knows= datafactory.getOWLObjectProperty(IOR+"#knows");
+      o.add(datafactory.getOWLDeclarationAxiom(knows));
       //OWLDataProperty
-      OWLDataProperty hasName= df.getOWLDataProperty(IOR+"#hasName");
-      o.add(df.getOWLDeclarationAxiom(hasName));
-      //man.addAxiom(o, da);
+      OWLDataProperty hasName= datafactory.getOWLDataProperty(IOR+"#hasName");
+      o.add(datafactory.getOWLDeclarationAxiom(hasName));
+      //man.addAxiom(o, declaration);
       //Individual
-      OWLIndividual dsf= df.getOWLNamedIndividual(IOR+"#Daniele");
-      o.add(df.getOWLDeclarationAxiom( (OWLEntity) dsf));
+      OWLIndividual dsf= datafactory.getOWLNamedIndividual(IOR+"#Daniele");
+      o.add(datafactory.getOWLDeclarationAxiom( (OWLEntity) dsf));
       //Class assertion
-      o.add(df.getOWLClassAssertionAxiom(person, dsf));
+      o.add(datafactory.getOWLClassAssertionAxiom(person, dsf));
       
       //Annotation
-      OWLAnnotation commentP = df.getOWLAnnotation(df.getRDFSComment(), df.getOWLLiteral("Class representing persons", "en"));
-      OWLAxiom ax1 = df.getOWLAnnotationAssertionAxiom(person.getIRI(), commentP);
+      OWLAnnotation commentP = datafactory.getOWLAnnotation(datafactory.getRDFSComment(), datafactory.getOWLLiteral("Class representing persons", "en"));
+      OWLAxiom ax1 = datafactory.getOWLAnnotationAssertionAxiom(person.getIRI(), commentP);
       o.add(ax1);
       //OWLSubclasses
-      OWLSubClassOfAxiom sub=df.getOWLSubClassOfAxiom(student, person);
+      OWLSubClassOfAxiom sub=datafactory.getOWLSubClassOfAxiom(student, person);
       o.add(sub);
       //OWLSubproperty
-      OWLSubObjectPropertyOfAxiom subp=df.getOWLSubObjectPropertyOfAxiom(hasFriend, knows);
+      OWLSubObjectPropertyOfAxiom subp=datafactory.getOWLSubObjectPropertyOfAxiom(hasFriend, knows);
       o.add(subp);
       //Domain restriction
-      o.add(df.getOWLObjectPropertyDomainAxiom(knows, person));
+      o.add(datafactory.getOWLObjectPropertyDomainAxiom(knows, person));
       //Data property range
-      o.add(df.getOWLDataPropertyRangeAxiom(hasName, df.getStringOWLDatatype()));
-      OWLDataRange rg= df.getOWLDataOneOf(df.getOWLLiteral("ab"),df.getOWLLiteral("b"));
+      o.add(datafactory.getOWLDataPropertyRangeAxiom(hasName, datafactory.getStringOWLDatatype()));
+      OWLDataRange rg= datafactory.getOWLDataOneOf(datafactory.getOWLLiteral("ab"),datafactory.getOWLLiteral("b"));
       //Restrictions
-      OWLDataProperty hasAge= df.getOWLDataProperty(IOR+"#hasAge");
-      o.add(df.getOWLDeclarationAxiom(hasAge));
-      o.add(df.getOWLDataPropertyRangeAxiom(hasAge, df.getIntegerOWLDatatype()));
-      OWLLiteral eighteenConstant = df.getOWLLiteral(18);    
+      OWLDataProperty hasAge= datafactory.getOWLDataProperty(IOR+"#hasAge");
+      o.add(datafactory.getOWLDeclarationAxiom(hasAge));
+      o.add(datafactory.getOWLDataPropertyRangeAxiom(hasAge, datafactory.getIntegerOWLDatatype()));
+      OWLLiteral eighteenConstant = datafactory.getOWLLiteral(18);    
       OWLFacet facet = MIN_INCLUSIVE;
-      OWLDataRange intGreaterThan18 = df.getOWLDatatypeRestriction(df.getIntegerOWLDatatype(), 
+      OWLDataRange intGreaterThan18 = datafactory.getOWLDatatypeRestriction(datafactory.getIntegerOWLDatatype(), 
               facet, eighteenConstant);
-      OWLClassExpression thingsWithAgeGreaterOrEqualTo18 = df.getOWLDataSomeValuesFrom(hasAge, 
+      OWLClassExpression thingsWithAgeGreaterOrEqualTo18 = datafactory.getOWLDataSomeValuesFrom(hasAge, 
               intGreaterThan18);
-      OWLClass adult = df.getOWLClass(IOR + "#Adult");
-      OWLClassExpression adultP=df.getOWLObjectIntersectionOf(adult, person);
-      OWLSubClassOfAxiom ax = df.getOWLSubClassOfAxiom(adultP, thingsWithAgeGreaterOrEqualTo18);
+      OWLClass adult = datafactory.getOWLClass(IOR + "#Adult");
+      OWLClassExpression adultP=datafactory.getOWLObjectIntersectionOf(adult, person);
+      OWLSubClassOfAxiom ax = datafactory.getOWLSubClassOfAxiom(adultP, thingsWithAgeGreaterOrEqualTo18);
       o.add(ax);
             
       o.logicalAxioms().forEach(System.out::println);
@@ -130,10 +131,10 @@ public class owlapi
       o.axioms(CLASS_ASSERTION).forEach(element ->  System.out.println(element.getClassExpression().asOWLClass().toString()));
       
       
-      OWLIndividual ind2= df.getOWLNamedIndividual(IOR+"#Frank"); 
-      AddAxiom axiomChange = new AddAxiom(o, df.getOWLDeclarationAxiom( (OWLEntity) ind2));
+      OWLIndividual ind2= datafactory.getOWLNamedIndividual(IOR+"#Frank"); 
+      AddAxiom axiomChange = new AddAxiom(o, datafactory.getOWLDeclarationAxiom( (OWLEntity) ind2));
       if(axiomChange.isAxiomChange() &&  axiomChange.isAddAxiom() &&
-              man.applyChange(axiomChange)== ChangeApplied.SUCCESSFULLY)
+              manager.applyChange(axiomChange)== ChangeApplied.SUCCESSFULLY)
           System.out.println("Axiom added successfully");      
       
     }

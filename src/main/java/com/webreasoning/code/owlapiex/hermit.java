@@ -6,8 +6,6 @@
 package com.webreasoning.code.owlapiex;
 
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import org.semanticweb.HermiT.Configuration;
@@ -36,7 +34,6 @@ import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 import org.semanticweb.owlapi.util.InferredSubClassAxiomGenerator;
 import org.semanticweb.owlapi.util.InferredSubDataPropertyAxiomGenerator;
 import org.semanticweb.owlapi.util.InferredSubObjectPropertyAxiomGenerator;
-import org.semanticweb.owlapi.util.SimpleIRIMapper;
 
 /**
  *
@@ -51,15 +48,16 @@ public class hermit
        
     
     Configuration configuration = new Configuration();
-    configuration.ignoreUnsupportedDatatypes = true;
+    configuration.ignoreUnsupportedDatatypes = true;  
     ReasonerFactory rf = new ReasonerFactory();
 
     OWLReasoner reasoner = rf.createReasoner(ontology, configuration);
-    boolean consistencyCheck = reasoner.isConsistent();
-    if (consistencyCheck) {
+    boolean consistencyCheck = reasoner.isConsistent(); 
+    if (consistencyCheck) 
+      { 
         reasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY,
-            InferenceType.CLASS_ASSERTIONS, InferenceType.OBJECT_PROPERTY_HIERARCHY,
-            InferenceType.DATA_PROPERTY_HIERARCHY, InferenceType.OBJECT_PROPERTY_ASSERTIONS);
+        InferenceType.CLASS_ASSERTIONS, InferenceType.OBJECT_PROPERTY_HIERARCHY,
+        InferenceType.DATA_PROPERTY_HIERARCHY, InferenceType.OBJECT_PROPERTY_ASSERTIONS);
 
         List<InferredAxiomGenerator<? extends OWLAxiom>> generators = new ArrayList<>();
         generators.add(new InferredSubClassAxiomGenerator());
@@ -74,15 +72,14 @@ public class hermit
         // NOTE: InferredPropertyAssertionGenerator significantly slows down
         // inference computation
         generators.add(new org.semanticweb.owlapi.util.InferredPropertyAssertionGenerator());
-
         generators.add(new InferredSubClassAxiomGenerator());
         generators.add(new InferredSubDataPropertyAxiomGenerator());
-        generators.add(new InferredSubObjectPropertyAxiomGenerator());
-        List<InferredIndividualAxiomGenerator<? extends OWLIndividualAxiom>> individualAxioms =
-            new ArrayList<>();
+        generators.add(new InferredSubObjectPropertyAxiomGenerator());        
+        
+        List<InferredIndividualAxiomGenerator<? extends OWLIndividualAxiom>> individualAxioms = new ArrayList<>();
         generators.addAll(individualAxioms);
-
         generators.add(new InferredDisjointClassesAxiomGenerator());
+        
         InferredOntologyGenerator iog = new InferredOntologyGenerator(reasoner, generators);
         OWLOntology inferredAxiomsOntology = manager.createOntology(IRI.create("http://www.dmi.unict.it/webreasoning/2017/exercise/1G1InfHermit"));
         iog.fillOntology(df, inferredAxiomsOntology);        

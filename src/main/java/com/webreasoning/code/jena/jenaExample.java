@@ -55,7 +55,7 @@ public class jenaExample
         OntDocumentManager dm = m.getDocumentManager(); //creazione del gestore del documento ontologico.
         FileManager fm=dm.getFileManager(); //file manager   che gestisce l'accesso alla sorgente fisica.        
         String unictIRI = "http://dmi.unict.it/ontologia#"; // IRI da utilizzare per le risorse dell'ontologia.
-        m.setNsPrefix("unict",unictIRI); 
+         m.setNsPrefix("unict",unictIRI); 
         OntClass studenti = m.createClass( unictIRI + "Studenti"); // Creazione della classe Studenti
         OntClass corsi = m.createClass( unictIRI + "Corsi"); // Creazione della classe Corsi
         ObjectProperty segueCorso = m.createObjectProperty( unictIRI + "segueCorso" ); //Creaazione della OP segueCorso.
