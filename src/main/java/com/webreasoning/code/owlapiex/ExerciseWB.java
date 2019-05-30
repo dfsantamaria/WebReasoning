@@ -42,58 +42,55 @@ public class ExerciseWB
        {
            
          OWLOntologyManager manager=OWLManager.createOWLOntologyManager();
+         //Creanting a new, initial empty, ontology
          File documentFile= new File("ontologie/ontologyExample.owl");
          documentFile.createNewFile();
          IRI iri= IRI.create("http://www.dmi.webreasoning.execitation.owl#");
          OWLOntologyID id=new OWLOntologyID( iri, IRI.create(iri+"/1.0"));
          OWLOntology ontology=manager.createOntology(id);
          
-         //OWLDataFactory dataFactory=manager.getOWLDataFactory();        
+         //OWLDataFactory  
          OWLDataFactory dataFactory=ontology.getOWLOntologyManager().getOWLDataFactory();
+         //Alternative: OWLDataFactory dataFactory=manager.getOWLDataFactory();   
          
          IRI pizzaIri=IRI.create("https://protege.stanford.edu/ontologies/pizza/pizza.owl");
          OWLOntology pizzaOntology=manager.loadOntologyFromOntologyDocument(pizzaIri);
-                                            
-         IRI pizzaOIri= IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()+"/pizza.owl"); 
-         
-         SimpleIRIMapper mapper = new SimpleIRIMapper(IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()),pizzaIri);
-         manager.getIRIMappers().add(mapper);
-                               
-         
-         OWLImportsDeclaration importsDeclaration=dataFactory.getOWLImportsDeclaration(pizzaIri);
-         AddImport addImportAddAxiom= new AddImport(ontology, importsDeclaration);
-         manager.applyChange(addImportAddAxiom);        
-         Stream<OWLImportsDeclaration> imp= ontology.importsDeclarations();
-         
-         imp.forEach( streamob -> System.out.println("Imported: "+streamob.getIRI()));
            
+         //IRI Mapper
+         IRI pizzaOntologyIri= IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()+"/pizza.owl");          
+         SimpleIRIMapper mapper = new SimpleIRIMapper(IRI.create(pizzaOntology.getOntologyID().getOntologyIRI().get().toString()),pizzaIri);
+         manager.getIRIMappers().add(mapper);                               
          
-         OWLClass sicilianPizza= dataFactory.getOWLClass(iri+"SicilianPizza");
-        
-         OWLDeclarationAxiom oda= dataFactory.getOWLDeclarationAxiom(sicilianPizza);
          
          
-         
+         //Importing Ontologies
+         OWLImportsDeclaration importsDeclaration=dataFactory.getOWLImportsDeclaration(pizzaIri);                  
+         AddImport addImportAddAxiom= new AddImport(ontology, importsDeclaration);
+         manager.applyChange(addImportAddAxiom); 
+         //Exploring the import declaration
+         Stream<OWLImportsDeclaration> imp= ontology.importsDeclarations();         
+         imp.forEach(streamobj -> System.out.println("Imported: "+streamobj.getIRI()));           
+         //Manipulating ontologies
+         OWLClass sicilianPizza= dataFactory.getOWLClass(iri+"SicilianPizza");        
+         OWLDeclarationAxiom oda= dataFactory.getOWLDeclarationAxiom(sicilianPizza);   
          ChangeApplied ca= ontology.add(oda);
          if(ca.equals(ca.SUCCESSFULLY))
              System.out.println("ok");
          manager.addAxiom(ontology, oda);
          
-         OWLAxiom oax= dataFactory.getOWLSubClassOfAxiom(sicilianPizza, dataFactory.getOWLClass(pizzaOIri+"#Pizza"));
-         manager.addAxiom(ontology, oax);
-        
+         OWLAxiom oax= dataFactory.getOWLSubClassOfAxiom(sicilianPizza, dataFactory.getOWLClass(pizzaOntologyIri+"#Pizza"));
+         manager.addAxiom(ontology, oax);        
          
-         ontology.axioms().forEach( ax -> {  System.out.println(ax.toString());        
-         
-                                           });
+         ontology.axioms().forEach( ax -> {
+                                            System.out.println(ax.toString()); 
+                                          });
            
          OWLObjectProperty prop=dataFactory.getOWLObjectProperty(iri+"pizzaEater");
          OWLObjectPropertyRangeAxiom ax1= 
                  dataFactory.getOWLObjectPropertyRangeAxiom(prop,
-                                                                 dataFactory.getOWLObjectUnionOf(
-                                                                     dataFactory.getOWLClass(pizzaOIri+"#Pizza"), 
-                                                                     dataFactory.getOWLClass(pizzaOIri+"#PizzaTopping"),
-                                                                      dataFactory.getOWLClass(pizzaOIri+"#PizzaBase"))                                                                                      
+                                                                 dataFactory.getOWLObjectUnionOf(dataFactory.getOWLClass(pizzaOntologyIri+"#Pizza"), 
+                                                                     dataFactory.getOWLClass(pizzaOntologyIri+"#PizzaTopping"),
+                                                                      dataFactory.getOWLClass(pizzaOntologyIri+"#PizzaBase"))                                                                                      
                                                             );
          ontology.add(ax1);
          
