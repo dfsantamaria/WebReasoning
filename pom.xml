@@ -14,17 +14,17 @@
          <dependency>
    <groupId>ru.avicomp</groupId>
    <artifactId>ontapi</artifactId>
-   <version>1.1.0</version>
+   <version>1.4.0</version>
  </dependency> 
  <dependency>
     <groupId>org.apache.jena</groupId>
     <artifactId>jena-arq</artifactId>
-    <version>3.6.0</version>
+    <version>3.11.0</version>
 </dependency>
         <dependency>
             <groupId>com.github.galigator.openllet</groupId>
             <artifactId>openllet-owlapi</artifactId>
-            <version>2.6.3</version>            
+            <version>2.6.4</version>            
         </dependency>
     </dependencies>
     <name>WebReasoning-Code-ONTAPI</name>
