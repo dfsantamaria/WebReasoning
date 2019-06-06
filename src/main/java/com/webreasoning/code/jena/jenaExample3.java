@@ -19,7 +19,7 @@ import org.apache.jena.vocabulary.RDF;
 
 /**
  *
- * @author danie
+ * @author Daniele Francesco Santamaria
  */
 public class jenaExample3
   {

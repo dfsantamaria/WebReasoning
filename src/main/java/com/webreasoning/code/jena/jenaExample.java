@@ -35,7 +35,7 @@ import org.apache.jena.update.UpdateAction;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.RDF;
 
-//import ru.avicomp.ontapi.jena.vocabulary.RDF;
+
 
 /**
  *
