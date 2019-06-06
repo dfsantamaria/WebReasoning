@@ -34,7 +34,8 @@ public class ontapi
      * @throws org.semanticweb.owlapi.model.OWLOntologyCreationException 
      * @throws org.semanticweb.owlapi.model.OWLOntologyStorageException 
  */
-   public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
+
+    public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
      {
          /*
             From OWL-API to Jena
