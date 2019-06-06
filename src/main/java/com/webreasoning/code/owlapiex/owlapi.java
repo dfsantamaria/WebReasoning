@@ -100,7 +100,10 @@ public class owlapi
       OWLClassExpression adultP=datafactory.getOWLObjectIntersectionOf(adult, person);
       OWLSubClassOfAxiom ax = datafactory.getOWLSubClassOfAxiom(adultP, thingsWithAgeGreaterOrEqualTo18);
       o.add(ax);
-            
+        
+      //AddAxiom addAxiom=new AddAxiom(o,ax);
+      //addAxiom.isAddAxiom();
+      
       o.logicalAxioms().forEach(System.out::println);
       o.axioms().forEach(System.out::println); 
       //Filtering Ontology

@@ -74,8 +74,8 @@ public class ExerciseWB
          OWLClass sicilianPizza= dataFactory.getOWLClass(iri+"SicilianPizza");        
          OWLDeclarationAxiom oda= dataFactory.getOWLDeclarationAxiom(sicilianPizza);   
          ChangeApplied ca= ontology.add(oda);
-         if(ca.equals(ca.SUCCESSFULLY))
-             System.out.println("ok");
+         if(ca.equals(ChangeApplied.SUCCESSFULLY))
+             System.out.println("Change applied successfully");
          manager.addAxiom(ontology, oda);
          
          OWLAxiom oax= dataFactory.getOWLSubClassOfAxiom(sicilianPizza, dataFactory.getOWLClass(pizzaOntologyIri+"#Pizza"));
