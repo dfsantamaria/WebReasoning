@@ -31,9 +31,8 @@ public class Married {
      * @throws java.lang.InterruptedException
      */
     public static void main(String[] args) throws IOException, InterruptedException {
-        // TODO code application logic here
-        
-        String mr3URI = "http://mr3.sourceforge.net#"; // URI da utilizzare per le risorse dell'ontologia. 
+                
+        String mr3URI = "http://mr3.sourceforge.net#";  
                                           
         String inputFileName= "ontologie"+File.separator+"MarriedWJena2.rdf";
         
