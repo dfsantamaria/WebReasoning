@@ -24,21 +24,23 @@ import ru.avicomp.ontapi.OntologyModel;
 
 /**
  *
- * @author danie
+ * @author Daniele Francesco Santamaria 
  */
 public class ontapi
   {
-    /**
- *
- * @author Daniele Francesco Santamaria 
+    /** 
+     * @param args 
+     * @throws java.io.FileNotFoundException 
+     * @throws org.semanticweb.owlapi.model.OWLOntologyCreationException 
+     * @throws org.semanticweb.owlapi.model.OWLOntologyStorageException 
  */
    public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
      {
          /*
             From OWL-API to Jena
          */
-        OWLOntologyManager manager = OntManagers.createONT();   
-        OWLDataFactory factory = manager.getOWLDataFactory();
+        OWLOntologyManager manager = OntManagers.createONT();   //OntAPI manager
+        OWLDataFactory factory = manager.getOWLDataFactory();   //OntAPI datafactory
         OWLOntology ontology=manager.loadOntologyFromOntologyDocument(new File("ontologies"+File.separator+"esempio.owl"));
        
     /* String iri="http://www.w3.org/2009/08/skos-reference/skos.rdf";

@@ -8,15 +8,10 @@ package com.webreasoning.exercise.ontapi;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import openllet.owlapi.OpenlletReasoner;
-import openllet.owlapi.OpenlletReasonerFactory;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.shared.JenaException;
 import org.apache.jena.util.FileManager;
-import org.semanticweb.owlapi.model.OWLDataFactory;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-import org.semanticweb.owlapi.model.OWLOntologyManager;
 import org.semanticweb.owlapi.model.OWLOntologyStorageException;
 import org.semanticweb.owlapi.model.parameters.Imports;
 import ru.avicomp.ontapi.OntManagers;
@@ -27,21 +22,23 @@ import ru.avicomp.ontapi.jena.model.OntGraphModel;
 
 /**
  *
- * @author danie
+ * @author Daniele Francesco Santamaria
  */
 public class ontapi2
   {
     /**
- *
- * @author Daniele Francesco Santamaria 
+     * @param args 
+     * @throws java.io.FileNotFoundException 
+     * @throws org.semanticweb.owlapi.model.OWLOntologyCreationException 
+     * @throws org.semanticweb.owlapi.model.OWLOntologyStorageException 
  */
    public static void main(String[] args) throws FileNotFoundException, OWLOntologyCreationException, OWLOntologyStorageException
      {    
     /*
       From Jena
     */
-        OntologyManager managerJ = OntManagers.createONT();
-        OntGraphModel modelJ = OntModelFactory.createModel();
+        OntologyManager managerJ = OntManagers.createONT(); //OntAPI manager
+        OntGraphModel modelJ = OntModelFactory.createModel(); //OntAPI datafactory
         try 
            {
              InputStream in = FileManager.get().open("ontologies"+File.separator+"esempio.owl");        
